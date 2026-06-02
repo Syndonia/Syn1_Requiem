@@ -3,14 +3,28 @@ using Sandbox.Citizen;
 
 public sealed class CsPlayermovement : Component
 {
+	//Variables 
+	[Property, Group("Health & UI")] public float Health { get; set; } = 100f;
+	[Property, Group("Health & UI")] public float MaxHealth { get; set; } = 100f;
+	[Property, Group("Health & UI")] public float Armor { get; set; } = 0f;
+	[Property, Group("Health & UI")] public float MaxArmor {  get; set; } = 100f;
+	[Property, Group("Health & UI")] public int Coins { get; set; } = 8;
+	public TimeSince TimeAlive { get; set; } = 0f; 
+ 
+	[Property]
+	public List<string> Inventory { get; set; } = new List<string>
+	{
+		"test"
+	};
+
 	//Movement Properties 
-	[Property] public float GroundControl { get; set; } = 4.0f;
-	[Property] public float AirControl { get; set; } = 0.1f;
-	[Property] public float MaxForce { get; set; } = 50f;
-	[Property] public float Speed { get; set; } = 160f;
-	[Property] public float RunSpeed { get; set; } = 290f;
-	[Property] public float CrouchSpeed { get; set; } = 90f;
-	[Property] public float JumpForce { get; set; } = 400f;
+	[Property, Group( "Movement" )]	public float GroundControl { get; set; } = 4.0f;
+	[Property, Group( "Movement" )] public float AirControl { get; set; } = 0.1f;
+	[Property, Group( "Movement" )] public float MaxForce { get; set; } = 50f;
+	[Property, Group( "Movement" )] public float Speed { get; set; } = 160f;
+	[Property, Group( "Movement" )] public float RunSpeed { get; set; } = 290f;
+	[Property, Group( "Movement" )] public float CrouchSpeed { get; set; } = 90f;
+	[Property, Group( "Movement" )] public float JumpForce { get; set; } = 400f;
 
 	//Object References 
 	[Property] public GameObject Head { get; set; }

@@ -1,0 +1,37 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Sandbox
+
+<root>
+	<div class="vitals"> 
+		<p>👛 @Player.Coins</p>
+		<p>🕰 @GetTimeString()</p> 
+	</div>
+
+	<div class="healthbars">
+		<div class="healthbar">
+			<div class="inner">
+				<div class="fill" style="width: @(Player.Health / Player.MaxHealth * 100f)%"></div>
+			</div>
+		</div>
+	</div> 
+</root>
+
+@code
+{
+	[Property] CsPlayermovement Player { get; set; }
+
+	string GetTimeString()
+	{
+		var time = Player.TimeAlive;
+		var minutes = (int)time / 60; 
+		var seconds = (int)time % 60;
+		return $"{minutes:00}:{seconds:00}"; 
+	}
+
+	protected override int BuildHash()
+	{
+		return System.HashCode.Combine(Player.Coins, Player.Health, GetTimeString());
+	} 
+}

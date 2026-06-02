@@ -1,0 +1,64 @@
+{
+  "RootObject": {
+    "__guid": "f9660894-59f7-4d7d-bd09-5bdd9f485cbf",
+    "__version": 2,
+    "Flags": 0,
+    "Name": "prefab_ui_playerprototype",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
+    "Tags": "",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkFlags": 0,
+    "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
+    "OwnerTransfer": 1,
+    "Components": [
+      {
+        "__type": "Sandbox.ScreenPanel",
+        "__guid": "1c7c6eee-eb3f-4ba6-810b-e0b1211e4116",
+        "__enabled": true,
+        "Flags": 0,
+        "AutoScreenScale": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Opacity": 1,
+        "Scale": 1,
+        "ScaleStrategy": "ConsistentHeight",
+        "TargetCamera": null,
+        "ZIndex": 100
+      },
+      {
+        "__type": "Sandbox.RazPlayerhud",
+        "__guid": "1c6bc541-bfa1-4f99-b8ea-db375105e414",
+        "__enabled": true,
+        "Flags": 0,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Player": {
+          "_type": "component",
+          "component_id": "b041081b-f1fc-4e95-ae62-7ac371ad4338",
+          "go": "270a8796-8bb6-4e0b-814b-e557f3e0aa7d",
+          "component_type": "CsPlayermovement"
+        }
+      }
+    ],
+    "Children": []
+  },
+  "ResourceVersion": 2,
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "__references": [],
+  "__version": 2
+}

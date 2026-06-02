@@ -73,18 +73,26 @@
         "__enabled": true,
         "Flags": 0,
         "AirControl": 0.1,
+        "Armor": 0,
         "Body": {
           "_type": "gameobject",
           "go": "d990c2d1-40d2-4374-b463-babd97287a9d"
         },
+        "Coins": 0,
         "CrouchSpeed": 90,
         "GroundControl": 4,
         "Head": {
           "_type": "gameobject",
           "go": "4705aa01-4241-45f6-808c-7c4f738a0e1d"
         },
+        "Health": 100,
+        "Inventory": [
+          "test"
+        ],
         "JumpForce": 400,
+        "MaxArmor": 100,
         "MaxForce": 50,
+        "MaxHealth": 100,
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
