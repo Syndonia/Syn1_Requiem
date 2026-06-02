@@ -69,7 +69,7 @@
       },
       {
         "__type": "CsPlayermovement",
-        "__guid": "32c4832f-3564-46a6-9e6c-16a5c45431c6",
+        "__guid": "b921c3a3-fee1-40c4-ac43-b598a5dd6f29",
         "__enabled": true,
         "Flags": 0,
         "AirControl": 0.1,
@@ -222,6 +222,33 @@
             "Viewport": "0,0,1,1",
             "ZFar": 10000,
             "ZNear": 10
+          },
+          {
+            "__type": "Cscameramovment",
+            "__guid": "150182cd-39fd-4b95-a952-ccd50a62f755",
+            "__enabled": true,
+            "Flags": 0,
+            "Body": {
+              "_type": "gameobject",
+              "go": "d990c2d1-40d2-4374-b463-babd97287a9d"
+            },
+            "Distance": 0,
+            "Head": {
+              "_type": "gameobject",
+              "go": "4705aa01-4241-45f6-808c-7c4f738a0e1d"
+            },
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "Player": {
+              "_type": "component",
+              "component_id": "b921c3a3-fee1-40c4-ac43-b598a5dd6f29",
+              "go": "72b9fe9e-e5cf-4511-a776-739f44c244e9",
+              "component_type": "CsPlayermovement"
+            }
           }
         ],
         "Children": []
