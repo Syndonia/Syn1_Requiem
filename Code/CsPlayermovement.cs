@@ -26,11 +26,31 @@ public sealed class CsPlayermovement : Component
 	protected override void OnAwake()
 	{
 		characterController = Components.Get<CharacterController>();
-		animationHelper = Components.Get<CitizenAnimationHelper>(); 
+		animationHelper = Components.Get<CitizenAnimationHelper>();
 	}
 
 	protected override void OnUpdate()
 	{
 
+	}
+
+	void BuildWishVelocity()
+	{
+		WishVelocity = 0;
+
+		var rot = Head.WorldRotation;
+
+		//Inputs 
+		if ( Input.Down( "Forward" ) ) WishVelocity += rot.Forward;
+		if ( Input.Down( "Backward" ) ) WishVelocity += rot.Backward;
+		if ( Input.Down( "Left" ) ) WishVelocity += rot.Left;
+		if ( Input.Down( "Right" ) ) WishVelocity += rot.Right;
+
+		WishVelocity = WishVelocity.WithZ( 0 );
+		if ( !WishVelocity.IsNearZeroLength ) WishVelocity = WishVelocity.Normal;
+
+		if ( IsCrouching ) WishVelocity *= CrouchSpeed;
+		else if ( IsSprinting ) WishVelocity *= RunSpeed;
+		else WishVelocity *= Speed;
 	}
 }
