@@ -5,7 +5,7 @@ public sealed class CsPlayermovement : Component
 {
 	//Movement Properties 
 	[Property] public float GroundControl { get; set; } = 4.0f;
-	[Property] public float AirCOntrol { get; set; } = 0.1f;
+	[Property] public float AirControl { get; set; } = 0.1f;
 	[Property] public float MaxForce { get; set; } = 50f;
 	[Property] public float Speed { get; set; } = 160f;
 	[Property] public float RunSpeed { get; set; } = 290f;
@@ -31,7 +31,15 @@ public sealed class CsPlayermovement : Component
 
 	protected override void OnUpdate()
 	{
+		// Set our Sprinting and Crouching states 
+		IsCrouching = Input.Down( "Duck" );
+		IsSprinting = Input.Down( "Run" ); 
+	}
 
+	protected override void OnFixedUpdate()
+	{
+		BuildWishVelocity();
+		Move(); 
 	}
 
 	void BuildWishVelocity()
@@ -52,5 +60,39 @@ public sealed class CsPlayermovement : Component
 		if ( IsCrouching ) WishVelocity *= CrouchSpeed;
 		else if ( IsSprinting ) WishVelocity *= RunSpeed;
 		else WishVelocity *= Speed;
+	}
+
+	void Move()
+	{
+		//Get Gravuty from our Scene 
+		var gravity = Scene.PhysicsWorld.Gravity; 
+
+		if(characterController.IsOnGround)
+		{
+			//Apply Friction/Acceleration 
+			characterController.Velocity = characterController.Velocity.WithZ( 0 );
+			characterController.Accelerate( WishVelocity );
+			characterController.ApplyFriction( GroundControl ); 
+		}
+		else
+		{
+			//Apply Air Control/Gravity
+			characterController.Velocity += gravity * Time.Delta * 0.5f;
+			characterController.Accelerate( WishVelocity.ClampLength( MaxForce ) );
+			characterController.ApplyFriction( AirControl ); 
+		}
+
+		//Move the CharacterController 
+		characterController.Move();
+
+		//Apply the Second Half of Gravity after Movement 
+		if ( !characterController.IsOnGround )
+		{
+			characterController.Velocity += gravity * Time.Delta * 0.5f; 
+		}
+		else
+		{
+			characterController.Velocity = characterController.Velocity.WithZ( 0 ); 
+		}
 	}
 }

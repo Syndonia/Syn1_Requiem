@@ -24,7 +24,7 @@
         "Bounciness": 0.3,
         "GroundAngle": 45,
         "Height": 64,
-        "IgnoreLayers": "player",
+        "IgnoreLayers": "player,trigger",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -41,7 +41,10 @@
         "__enabled": true,
         "Flags": 0,
         "BodyWeight": 1,
-        "EyeSource": null,
+        "EyeSource": {
+          "_type": "gameobject",
+          "go": "4705aa01-4241-45f6-808c-7c4f738a0e1d"
+        },
         "EyesWeight": 1,
         "HeadWeight": 1,
         "Height": null,
@@ -69,7 +72,7 @@
         "__guid": "32c4832f-3564-46a6-9e6c-16a5c45431c6",
         "__enabled": true,
         "Flags": 0,
-        "AirCOntrol": 0.1,
+        "AirControl": 0.1,
         "Body": {
           "_type": "gameobject",
           "go": "d990c2d1-40d2-4374-b463-babd97287a9d"
