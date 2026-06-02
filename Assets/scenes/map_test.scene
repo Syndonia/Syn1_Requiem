@@ -1,0 +1,323 @@
+{
+  "__guid": "d337d14d-c001-4722-a4eb-8df546aa0cd4",
+  "GameObjects": [
+    {
+      "__guid": "49fe2ec2-1a3f-4d73-bc24-ea6d12a2caf6",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Floor",
+      "Position": "0,0,0",
+      "Rotation": "0,0,0,1",
+      "Scale": "2,2,2",
+      "Tags": "world",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.MeshComponent",
+          "__guid": "07c37e81-976d-4208-98ac-10861e264a51",
+          "__enabled": true,
+          "Flags": 0,
+          "ColliderFlags": 0,
+          "Collision": "Mesh",
+          "Color": "1,1,1,1",
+          "Elasticity": null,
+          "Friction": null,
+          "HideInGame": false,
+          "IsTrigger": false,
+          "Mesh": {
+            "Topology": "H4sIAAAAAAAACl2QCQ7CMAwEp4Qj3NBy/f+laMRGsohUVbFn1+t04ANs+Z0VsM69AwfgBFyAKZ9MPXdgk3qLnsI+Um/h/me9i2ZXfFvYOazafTJN0XRgKZmPyWtfXvYVL73PZRd52WdYPa7xtC8veys7u6t17/7t6Tn0ZtFjvIXZR895zjKjPWf4NiOrGt+ivpXZ3XnozaOndVn9vvVkkTjEAQAA",
+            "Positions": [
+              "-747.135742,-622.567993,2.86375427",
+              "747.135742,-622.567993,2.86375427",
+              "747.135742,622.568054,2.86375427",
+              "-747.135742,622.568054,2.86375427",
+              "-747.135742,622.568054,-2.86375427",
+              "747.135742,622.568054,-2.86375427",
+              "747.135742,-622.567993,-2.86375427",
+              "-747.135742,-622.567993,-2.86375427"
+            ],
+            "Blends": [
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0"
+            ],
+            "Colors": [
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0",
+              "0,0,0,0"
+            ],
+            "TextureCoord": [
+              "7.8036499,5.78942347",
+              "-3.87034607,-0.0447461605",
+              "7.8036499,-3.9382019",
+              "-5.78942347,-0.0447461605",
+              "-3.87034607,-3.9382019",
+              "-7.8036499,-0.0447461605",
+              "-3.87034607,5.78942347",
+              "-3.9382019,-0.0447461605",
+              "7.8036499,-3.9382019",
+              "3.87034607,0",
+              "7.8036499,5.78942347",
+              "3.9382019,0",
+              "-3.87034607,5.78942347",
+              "7.8036499,0",
+              "-3.87034607,-3.9382019",
+              "5.78942347,0",
+              "5.78942347,-0.0447461605",
+              "-3.87034607,0",
+              "-3.9382019,0",
+              "3.87034607,-0.0447461605",
+              "-5.78942347,0",
+              "7.8036499,-0.0447461605",
+              "3.9382019,-0.0447461605",
+              "-7.8036499,0"
+            ],
+            "MaterialIndex": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "EdgeFlags": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "Materials": [
+              "materials/dev/reflectivity_30.vmat"
+            ]
+          },
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnObjectTriggerEnter": null,
+          "OnObjectTriggerExit": null,
+          "OnTriggerEnter": null,
+          "OnTriggerExit": null,
+          "RenderType": "On",
+          "RollingResistance": null,
+          "SmoothingAngle": 40,
+          "Static": true,
+          "Surface": null,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "219796ff-80bb-48dc-88c4-45ea0c93d86f",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "Sun",
+      "Position": "0,0,318.884857",
+      "Rotation": "0,0.707106709,0,0.707106829",
+      "Scale": "1,1,1",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.DirectionalLight",
+          "__guid": "75dd9f18-b1d0-4be0-9685-bdc3b2df4d79",
+          "__enabled": true,
+          "Flags": 0,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "ShadowBias": 0.0005,
+          "ShadowCascadeCount": 4,
+          "ShadowCascadeSplitRatio": 0.91,
+          "ShadowHardness": 0,
+          "Shadows": true,
+          "SkyColor": "0,0,0,0",
+          "Visualizer": {}
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "270a8796-8bb6-4e0b-814b-e557f3e0aa7d",
+      "__version": 2,
+      "__Prefab": "prefabs/prefab_player.prefab",
+      "__PrefabInstancePatch": {
+        "AddedObjects": [],
+        "RemovedObjects": [],
+        "PropertyOverrides": [
+          {
+            "Target": {
+              "Type": "GameObject",
+              "IdValue": "72b9fe9e-e5cf-4511-a776-739f44c244e9"
+            },
+            "Property": "Position",
+            "Value": "-255.952606,-42.1406479,89.7976379"
+          }
+        ],
+        "MovedObjects": []
+      },
+      "__PrefabIdToInstanceId": {
+        "72b9fe9e-e5cf-4511-a776-739f44c244e9": "270a8796-8bb6-4e0b-814b-e557f3e0aa7d",
+        "4705aa01-4241-45f6-808c-7c4f738a0e1d": "e349c87e-10c8-40e3-b2d3-703366416f30",
+        "d990c2d1-40d2-4374-b463-babd97287a9d": "3e3e4986-b1f6-4bf7-89c3-520249fe9d1a",
+        "5196f919-2b8d-447d-b798-4eb2d00e30db": "8434399f-9a03-45d8-860f-04b5c010a734",
+        "c04a64be-143e-46e3-8a27-a435cbfdb4d1": "9feada43-a68e-40d8-9783-b834c8b2fd8c",
+        "d2d33270-e8b0-461e-b3d6-96cd8cbd480f": "6a1d8b1f-5047-4885-a275-b6b6d87f811f",
+        "2f9beab3-fbac-46a4-b461-c89116033133": "5b3d781b-e350-4344-b7cd-ddfed1bbdd43",
+        "027a277a-8c7b-4f2e-99b5-1e4dd664211b": "dcdd0637-78f6-4420-83d7-925b172fca23"
+      }
+    },
+    {
+      "__guid": "bed3ce82-291b-4603-b461-5a23139b25cd",
+      "__version": 2,
+      "Flags": 0,
+      "Name": "2D Skybox",
+      "Position": "-255.507477,-34.234127,92.7382965",
+      "Rotation": "0,0,0,1",
+      "Scale": "1,1,1",
+      "Tags": "skybox",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkFlags": 0,
+      "NetworkOrphaned": 0,
+      "NetworkTransmit": true,
+      "OwnerTransfer": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.SkyBox2D",
+          "__guid": "9cac63d3-1feb-4fbe-b045-f500d8372eff",
+          "__enabled": true,
+          "Flags": 0,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "SkyIndirectLighting": true,
+          "SkyMaterial": "materials/skybox/skybox_day_01.vmat",
+          "Tint": "1,1,1,1"
+        }
+      ],
+      "Children": []
+    }
+  ],
+  "SceneProperties": {
+    "NetworkInterpolation": true,
+    "TimeScale": 1,
+    "WantsSystemScene": true,
+    "Metadata": {},
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": false,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": "",
+      "DeferGeneration": false,
+      "CustomBounds": false
+    },
+    "GameObjectSystems": {
+      "Sandbox.SelectionSetsSystem": {
+        "Data": {
+          "SelectionSets": []
+        }
+      },
+      "Sandbox.Clutter.ClutterGridSystem": {
+        "Storage": {
+          "$blob": "cfa18b10-8302-4d56-8be1-bd937a9b131e"
+        }
+      }
+    }
+  },
+  "ResourceVersion": 3,
+  "Title": null,
+  "Description": null,
+  "__references": [],
+  "__version": 3
+}
