@@ -32,14 +32,18 @@ public sealed class CsPlayermovement : Component
 	protected override void OnUpdate()
 	{
 		// Set our Sprinting and Crouching states 
-		IsCrouching = Input.Down( "Duck" );
-		IsSprinting = Input.Down( "Run" ); 
+		UpdateCrouch();
+		IsSprinting = Input.Down( "Run" );
+		if ( Input.Pressed( "Jump" ) ) Jump();
+
+		RotateBody();
+		UpdateAnimations();
 	}
 
 	protected override void OnFixedUpdate()
 	{
 		BuildWishVelocity();
-		Move(); 
+		Move();
 	}
 
 	void BuildWishVelocity()
@@ -65,21 +69,21 @@ public sealed class CsPlayermovement : Component
 	void Move()
 	{
 		//Get Gravuty from our Scene 
-		var gravity = Scene.PhysicsWorld.Gravity; 
+		var gravity = Scene.PhysicsWorld.Gravity;
 
-		if(characterController.IsOnGround)
+		if ( characterController.IsOnGround )
 		{
 			//Apply Friction/Acceleration 
 			characterController.Velocity = characterController.Velocity.WithZ( 0 );
 			characterController.Accelerate( WishVelocity );
-			characterController.ApplyFriction( GroundControl ); 
+			characterController.ApplyFriction( GroundControl );
 		}
 		else
 		{
 			//Apply Air Control/Gravity
 			characterController.Velocity += gravity * Time.Delta * 0.5f;
 			characterController.Accelerate( WishVelocity.ClampLength( MaxForce ) );
-			characterController.ApplyFriction( AirControl ); 
+			characterController.ApplyFriction( AirControl );
 		}
 
 		//Move the CharacterController 
@@ -88,11 +92,62 @@ public sealed class CsPlayermovement : Component
 		//Apply the Second Half of Gravity after Movement 
 		if ( !characterController.IsOnGround )
 		{
-			characterController.Velocity += gravity * Time.Delta * 0.5f; 
+			characterController.Velocity += gravity * Time.Delta * 0.5f;
 		}
 		else
 		{
-			characterController.Velocity = characterController.Velocity.WithZ( 0 ); 
+			characterController.Velocity = characterController.Velocity.WithZ( 0 );
 		}
+
+	}
+	void RotateBody()
+	{
+		if ( Body is null ) return;
+
+		var targetAngle = new Angles( 0, Head.WorldRotation.Yaw(), 0 ).ToRotation();
+		float rotateDiffrence = Body.WorldRotation.Distance( targetAngle );
+
+		if ( rotateDiffrence > 50f || characterController.Velocity.Length > 10f )
+		{
+			Body.WorldRotation = Rotation.Lerp( Body.WorldRotation, targetAngle, Time.Delta * 2f );
+		}
+	}
+
+	void Jump()
+	{
+		if ( !characterController.IsOnGround ) return;
+
+		characterController.Punch( Vector3.Up * JumpForce );
+		animationHelper?.TriggerJump();
+	}
+
+	void UpdateCrouch()
+	{
+		if(characterController is null) return;
+
+		if(Input.Pressed("Duck") && !IsCrouching)
+		{
+			IsCrouching = true;
+			characterController.Height /= 2f; 
+		}
+
+		if(Input.Released("Duck") && IsCrouching)
+		{
+			IsCrouching = false;
+			characterController.Height *= 2f; 
+		}
+	}
+
+	void UpdateAnimations()
+	{
+		if ( animationHelper is null ) return;
+
+		animationHelper.WithWishVelocity( WishVelocity ); 
+		animationHelper.WithVelocity ( characterController.Velocity );
+		animationHelper.AimAngle = Head.WorldRotation;
+		animationHelper.IsGrounded = characterController.IsOnGround;
+		animationHelper.WithLook( Head.WorldRotation.Forward, 1f, 0.75f, 0.5f );
+		animationHelper.MoveStyle = CitizenAnimationHelper.MoveStyles.Run;
+		animationHelper.DuckLevel = IsCrouching ? 1f : 0f; 
 	}
 }

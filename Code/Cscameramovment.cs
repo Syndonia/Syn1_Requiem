@@ -11,12 +11,13 @@ public sealed class Cscameramovment : Component
 
 	//Variables 
 	public bool IsFirstPerson => Distance == 0f;
+	private Vector3 CurrentOffset = Vector3.Zero; 
 	private CameraComponent Camera;
-	private ModelRenderer BodyRenderer; 
+	private ModelRenderer BodyRenderer;
 	protected override void OnAwake()
 	{
 		Camera = Components.Get<CameraComponent>();
-		BodyRenderer = Body.Components.Get<ModelRenderer>(); 
+		BodyRenderer = Body.Components.Get<ModelRenderer>();
 	}
 
 	protected override void OnUpdate()
@@ -29,21 +30,26 @@ public sealed class Cscameramovment : Component
 		eyeAngles.pitch = eyeAngles.pitch.Clamp( -89.9f, 89.9f );
 		Head.WorldRotation = eyeAngles.ToRotation();
 
+		//Set the current camera offset 
+		var targetOffset = Vector3.Zero;
+		if ( Player.IsCrouching ) targetOffset += Vector3.Down * 32f;
+		CurrentOffset = Vector3.Lerp( CurrentOffset, targetOffset, Time.Delta * 10f ); 
+
 		//Set the position of the Camera 
 		if ( Camera is not null )
 		{
-			var camPos = Head.WorldPosition; 
-			if (!IsFirstPerson )
+			var camPos = Head.WorldPosition + CurrentOffset; 
+			if ( !IsFirstPerson )
 			{
 				//Perform a trace backwards to see where we can safely place the camera 
 				var camForward = eyeAngles.ToRotation().Forward;
 				var camTrace = Scene.Trace.Ray( camPos, camPos = (camForward * Distance) )
 					.WithoutTags( "player", "trigger" )
-					.Run(); 
+					.Run();
 
-				if(camTrace.Hit)
+				if ( camTrace.Hit )
 				{
-					camPos = camTrace.HitPosition + camTrace.Normal; 
+					camPos = camTrace.HitPosition + camTrace.Normal;
 				}
 				else
 				{
@@ -51,7 +57,7 @@ public sealed class Cscameramovment : Component
 				}
 
 				//Show the body if we're not in first person 
-				BodyRenderer.RenderType = ModelRenderer.ShadowRenderType.On; 
+				BodyRenderer.RenderType = ModelRenderer.ShadowRenderType.On;
 			}
 			else
 			{
@@ -60,8 +66,9 @@ public sealed class Cscameramovment : Component
 			}
 
 			//Set the position of the camera to our calculated position 
-			Camera.WorldPosition = camPos; 
-			Camera.WorldRotation = eyeAngles.ToRotation(); 
+			Camera.WorldPosition = camPos;
+			Camera.WorldRotation = eyeAngles.ToRotation();
 		}
 	}
+
 }
